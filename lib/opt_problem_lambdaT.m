@@ -35,7 +35,7 @@ end
 
 lambdaT_MAX = min([analitic_lambdaT_max,max_lambdaT_v,max_lambdaT_w]);
 % lambdaT_MAX = inf;
-if true
+if false
    lambdaT_vect = 0:0.001:3;
    DV_vect = zeros(size(lambdaT_vect));
    for i=1:numel(lambdaT_vect)

@@ -21,21 +21,21 @@ if forward_action_enabled
     if lambdaT < 10*eps
         unitStepForwardActionVel = Lpinv*Ds_stark;
         unitStepForwardActionRotVel = unitStepForwardActionVel(4:6);
-        INT = computeIntegralExpSkewBar(1,-unitStepForwardActionRotVel,N_features);
+        INT = matrixBar(integralOfConstAxR(-unitStepForwardActionRotVel,1),N_features);
         ekp1 = ek - Ds_stark + INT*L*unitStepForwardActionVel;
     else
         unitGainVel = Lpinv*ek;
         unitStepForwardActionVel = Lpinv*Ds_stark;
         normalizedVel = unitStepForwardActionVel/lambdaT - unitGainVel;
         normalizedRotVel = normalizedVel(4:6);
-        INT = computeIntegralExpSkewBar(lambdaT,-normalizedRotVel,N_features);
+        INT = matrixBar(integralOfConstAxR(-normalizedRotVel,lambdaT),N_features);
         ekp1 = ek - Ds_stark + INT*L*normalizedVel;
     end
     
 else
    unitGainVel = Lpinv*ek;
    unitGainRotVel = unitGainVel(4:6);
-   INT = computeIntegralExpSkewBar(lambdaT,unitGainRotVel,N_features);
+   INT = matrixBar(integralOfConstAxR(unitGainRotVel,lambdaT),N_features);
    ekp1 = ek - INT*L*unitGainVel - Ds_stark;
 end
 
