@@ -33,3 +33,4 @@ octave-workspace
 # User-defined
 ros_dbg/
 *.original
+*.fig

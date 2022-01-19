@@ -22,27 +22,34 @@ else
 end
 
 % compute lambda_max
-analitic_lambdaT_max = computeAnaliticLambdaTMax(ek,computeL(ek+s_star));
+analitic_lambdaT_max = computeAnaliticLambdaTMax(ek,computeL(ek+s_star),Ds_stark);
 forwardActionVelT = computeLpinv(ek+s_star)*Ds_stark;
 vel_lambda1 = computeLpinv(ek+s_star)*ek;
 max_lambdaT_v = computeLambdaTBound(vel_lambda1(1:3), forwardActionVelT(1:3), vTMax);
 max_lambdaT_w = computeLambdaTBound(vel_lambda1(4:6), forwardActionVelT(4:6), wTMax);
 
+if analitic_lambdaT_max < 0
+    dummy = 0;
+    analitic_lambdaT_max = 0;
+end
+
 lambdaT_MAX = min([analitic_lambdaT_max,max_lambdaT_v,max_lambdaT_w]);
 % lambdaT_MAX = inf;
-if false
-   lambdaT_vect = 0:0.001:100;
+if true
+   lambdaT_vect = 0:0.001:3;
    DV_vect = zeros(size(lambdaT_vect));
    for i=1:numel(lambdaT_vect)
     DV_vect(i) = fun(lambdaT_vect(i));
    end
-   figure(101),plot(lambdaT_vect,DV_vect);
+   figure(101),hold on,plot(lambdaT_vect,DV_vect);
    grid on
    drawnow;
 end
 
-if(norm(ek)<10*eps)
-    lambdaT = min(1,lambdaT_MAX);
+rmse = sqrt(norm(ek)^2/(numel(ek)/3));
+if(rmse<0.004)
+    lambdaT = analitic_lambdaT_max;
+%     lambdaT = min(1,lambdaT_MAX);
     return;
 end
 
