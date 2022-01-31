@@ -1,19 +1,45 @@
-function lambdaT_max = computeAnaliticLambdaTMax(e,L,Dsstar)
+function lambdaT_max = computeAnaliticLambdaTMax(e,L,Dsstar,TForwardVel, rmse_noise_level, l_fcn)
+
+if(nargin < 6 || isempty(l_fcn))
+    l_fcn = [];
+end
+
+if(nargin < 5 || isempty(rmse_noise_level))
+    rmse_noise_level = 0;
+end
+
+if nargin < 4 || isempty(TForwardVel)% || all(TForwardVel == 0))
+    TForwardVel = zeros(6,1);
+end
+
+if(nargin < 3 || isempty(Dsstar))
+    Dsstar = 0;
+end
+
 
 Lpinv = pinv(L);
 eI = L*Lpinv*e;
 
 normEI = norm(eI);
-if(normEI < 10*eps)
+normE = norm(e);
+
+rmse = normE/sqrt(numel(e)/3);
+
+if(rmse<(rmse_noise_level+1E-4))
     alph = 1;
 else
-    alph = (norm(e) + norm(Dsstar))/normEI;
+    alph = normE/normEI;
 end
 
 % lambdaT_max = (2 - alph*norm([zeros(3) eye(3)]*Lpinv*Dsstar))/(1  + alph * norm( [zeros(3) eye(3)]*Lpinv*e ) );
-lambdaT_max = 0.5* 2/(1  + alph * norm( [zeros(3) eye(3)]*Lpinv*e ) );
+lambdaT_max = 1/(1  + alph * norm( [zeros(3) eye(3)]*Lpinv*e ) );
 % lambda_max = inf;
 % lambda_max = (2/Ts)/(1  + alph * norm( [zeros(3) eye(3)]*Lpinv)*norm(e) );
+
+if not(isempty(l_fcn))
+    lambdaT_max = lambdaT_max;%*l_fcn(rmse);
+end
+return;
 
 MIN = 0.002;
 MAX = 0.005;
