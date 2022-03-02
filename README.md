@@ -1,7 +1,5 @@
 # Sampled Data Visual Servoing Library
 
-![https://www.unicampania.it/doc/img/logo_vanvitelli.jpg](https://www.unicampania.it/doc/img/logo_vanvitelli.jpg)
-
 This MATLAB/Simulink library contains the simulation and control code for a sampled data visual servoing system.
 
 ## Installation
