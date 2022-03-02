@@ -2,7 +2,7 @@ function [initial_T_final] = computeTfeatures(s_initial,s_final)
 %COMPUTETFEATURES Summary of this function goes here
 %   Detailed explanation goes here
 
-options = optimoptions(@fminunc,'Display','iter',...
+options = optimoptions(@fminunc,'Display','none',...
     'MaxIterations',1000,...
     'OptimalityTolerance',1e-12, ...
     'StepTolerance',1e-13); 
@@ -37,8 +37,12 @@ end
 function r = residual(initial_R_final, initial_P_final, si_initial, si_final)
 
 
-hat_si_final = initial_R_final*si_initial + initial_P_final(:);
+% hat_si_final = initial_R_final*si_initial + initial_P_final(:);
+% 
+% r = hat_si_final - si_final;
 
-r = hat_si_final - si_final;
+hat_si_initial = initial_R_final*si_final + initial_P_final(:);
+
+r = hat_si_initial - si_initial;
 
 end

@@ -50,7 +50,7 @@ wMax = deg2rad(20);
 rotax = unit(rotax);
 % % rotax = unit(rand(3,1));
 % % rotax = [-0.4538   -0.8911   -0.0001]';
-rotang = deg2rad(120);
+rotang = 0* deg2rad(120);
 R_0 = angvec2r(rotang,rotax);
 t_0 = (eye(3)-R_0)*sum(C_features_desired,2)/size(C_features_desired,2);
 t_0 = t_0*0 + [1; 0; 0]; % 1e-4 = converge a shat
@@ -92,6 +92,12 @@ W_T_Cdesired = W_T_C_0 * C0_T_Cdesired;
 s_star_end = C_features_desired(:);
 s0 = C_features_0(:);
 e0 = s0 - C_features_desired(:); % should be 0 if eo=0;
+
+lambda = 10;
+
+C_features_0_ = homtrans(inv(W_T_C_0)*SE3(rotx(5),[0 0.2 0.01]), W_features);
+s0_ = C_features_0_(:);
+e0_ = s0_ - C_features_desired(:);
 
 %% sim e_tilde
 % lambda_const = 1/Ts;

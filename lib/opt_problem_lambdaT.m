@@ -24,7 +24,7 @@ vel_lambda1 = computeLpinv(ek+s_star)*ek;
 max_lambdaT_v = computeLambdaTBound(vel_lambda1(1:3), TForwardVel_(1:3), vTMax);
 max_lambdaT_w = computeLambdaTBound(vel_lambda1(4:6), TForwardVel_(4:6), wTMax);
 
-lambdaT_MAX = min([analitic_lambdaT_max,max_lambdaT_v,max_lambdaT_w]);
+lambdaT_MAX = min([2*analitic_lambdaT_max,max_lambdaT_v,max_lambdaT_w]);
 % lambdaT_MAX = inf;
 
 if lambdaT_MAX < 0
@@ -33,8 +33,8 @@ if lambdaT_MAX < 0
 end
 
 rmse = norm(ek)/sqrt((numel(ek)/3));
-if(rmse<(rmse_noise_level+1E-4))
-    lambdaT = lambdaT_MAX;
+if(rmse<(rmse_noise_level+(10*eps)))
+    lambdaT = min([analitic_lambdaT_max,max_lambdaT_v,max_lambdaT_w]);
     return;
 end
 
