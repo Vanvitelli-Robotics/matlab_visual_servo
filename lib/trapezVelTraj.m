@@ -1,4 +1,5 @@
 function [p,p_dot] = trapezVelTraj(t,pi,pf,vmax,ai,af,ti)
+%trapezVelTraj trapezoidal velocity scalar trajectory
 
 Dt = t-ti;
 Dp_max = pf - pi;

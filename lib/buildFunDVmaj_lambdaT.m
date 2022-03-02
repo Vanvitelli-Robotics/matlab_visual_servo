@@ -1,4 +1,10 @@
 function DV_maj = buildFunDVmaj_lambdaT(ek,s_star, l_fcn_value)
+% buildFunDVmaj_lambdaT build the function handler pi(lambdaT) (see paper)
+% 
+% ek: visual servoing error
+% s_star: reference features
+% l_fcn_value: value of the landing function
+
 
 if nargin < 3 || isempty(l_fcn_value)
     l_fcn_value = 1;

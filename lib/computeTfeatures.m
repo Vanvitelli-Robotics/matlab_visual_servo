@@ -1,6 +1,6 @@
 function [initial_T_final] = computeTfeatures(s_initial,s_final)
-%COMPUTETFEATURES Summary of this function goes here
-%   Detailed explanation goes here
+%COMPUTETFEATURES compute the trasformation matrix between the initial and
+%desired features
 
 options = optimoptions(@fminunc,'Display','none',...
     'MaxIterations',1000,...

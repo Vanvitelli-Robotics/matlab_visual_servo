@@ -1,6 +1,5 @@
 function [Qt, wt, deltaAng] = quatInterp(t, initial_quat, final_quat, scalarTraj)
-%POSITIONINTERP Summary of this function goes here
-%   Detailed explanation goes here
+%POSITIONINTERP quaternion trajectory generator
 
 [rot_axis, deltaAng] = calcAxis(final_quat, initial_quat);
 

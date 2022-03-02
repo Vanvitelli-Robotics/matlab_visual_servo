@@ -1,4 +1,5 @@
 function lambdaT = opt_problem_lambdaT(ek,s_star,vTMax,wTMax,Ds_stark,TForwardVel, rmse_noise_level,analitic_lambdaT_max)
+%opt_problem_lambdaT optimization problem P1
 
 lambdaT_0 = 0; %<- ...
 

@@ -1,4 +1,7 @@
 function ekp1 = discreteErrorSystem(Ts, ek, s_star_k, vk, Ds_stark)
+%discreteErrorSystem computes the next sampled time error ekp1 given the
+%current error ek and the system inputs.
+
 
 if(nargin < 5 || isempty(Ds_stark))
     Ds_stark = 0;

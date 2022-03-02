@@ -1,6 +1,6 @@
 function out = integralOfConstAxR(w,T)
-% integral of rotation matrix with const axis, w rotation axis, ||w*T||
-% total rotation angle
+%integralOfConstAxR integral of rotation matrix with const axis, w rotation
+%axis, ||w*T|| total rotation angle (it corresponds to P(-w) in the paper).
 
 nW = norm(w);
 wT = nW*T;

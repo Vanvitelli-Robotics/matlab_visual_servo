@@ -1,4 +1,5 @@
 function [a_T_b] = invSE3(b_T_a)
+%invSE3 inverse of a homogeneous transformation matrix
 
 a_R_b = b_T_a(1:3,1:3)';
 

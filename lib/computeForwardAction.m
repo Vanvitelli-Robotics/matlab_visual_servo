@@ -1,4 +1,5 @@
 function [vf, funval, exitflag] = computeForwardAction(s_star_k, s_star_kp1, T, vf0, s, closed_loop_rot_vel)
+% computeForwardAction compute the forward action
 
 if nargin < 6
     closed_loop_rot_vel = zeros(3,1);

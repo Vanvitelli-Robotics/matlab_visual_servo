@@ -1,4 +1,13 @@
 function lambdaT = analiticLambdaTWithVelLimits(analitic_lambdaT_max,ek,s_star,vTMax,wTMax,TForwardVel)
+% analiticLambdaTWithVelLimits reduces the visual servoing gain to comply
+% with the velocity limits.
+%
+%  analitic_lambdaT_max: max analitic gain
+%  ek: visual servoing error
+%  s_star: reference features
+%  vTMax: max translational velocity times the sampling time
+%  wTMax: max rotational velocity times the sampling time
+
 
 TForwardVel_ = zeros(6,1);
 if nargin < 6 || isempty(TForwardVel) || norm(TForwardVel) == 0

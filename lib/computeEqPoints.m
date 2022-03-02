@@ -1,4 +1,7 @@
 function [s_eq1, s_eq2, s_eq3, t_eq1, R_eq1, t_eq2, R_eq2, t_eq3, R_eq3, r_eq1, r_eq2, r_eq3] = computeEqPoints(C_features_desired)
+% computeEqPoints compute the equilibrium points
+%
+% C_features_desired: desired features
 
 theta = pi;
 I = eye(3);

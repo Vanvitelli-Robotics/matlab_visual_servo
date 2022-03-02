@@ -1,4 +1,5 @@
 function max_lambdaT = computeLambdaTBound(unit_gain_v_closed_loop, TForwardVel, max_vT)
+% computeLambdaTBound transform maximum velocity limit in maximum lambda
 
 if norm(unit_gain_v_closed_loop) < 10*eps
     if norm(TForwardVel) > max_vT^2

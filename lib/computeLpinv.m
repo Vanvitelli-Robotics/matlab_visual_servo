@@ -1,6 +1,5 @@
 function Lpinv = computeLpinv(s, preloadL)
-%COMPUTEL Summary of this function goes here
-%   Detailed explanation goes here
+%COMPUTEL interaction matrix pseudoinverse
 
 if(nargin < 2)
    preloadL = true; 

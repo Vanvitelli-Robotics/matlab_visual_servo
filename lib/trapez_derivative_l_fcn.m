@@ -1,4 +1,5 @@
 function val = trapez_derivative_l_fcn(rmse, rmse_noise_min, slope_max, val_min, b_disabled)
+%trapez_derivative_l_fcn trapezoidal scalar trajectory
 
 if nargin < 5 || isempty(b_disabled)
    b_disabled = false;

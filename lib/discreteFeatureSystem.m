@@ -1,4 +1,6 @@
 function skp1 = discreteFeatureSystem(Ts, sk, vk)
+%discreteErrorSystem computes the next sampled time feature vector sp1 given the
+%current one sk and the system inputs.
 
 N_features = numel(sk)/3;
 

@@ -1,4 +1,6 @@
 function ekp1 = discreteErrorSystemClosedLoop_internal(lambdaT, ek, L, Lpinv, Ds_stark, TForwardVel)
+% interlan function, do not use it
+
 
 if nargin < 6 || isempty(TForwardVel)% || TForwardVel == 0)
     TForwardVel = zeros(6,1);

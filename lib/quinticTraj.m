@@ -1,6 +1,5 @@
 function [s, sdot] = quinticTraj(t,pi,pf,ti,tf)
-%UNTITLED Summary of this function goes here
-%   Detailed explanation goes here
+%quinticTraj quintic poly scalar trajectory
 
 dur = tf-ti;
 t_2 = (dur^2);

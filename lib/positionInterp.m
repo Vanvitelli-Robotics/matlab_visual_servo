@@ -1,6 +1,5 @@
 function [pt, ptdot] = positionInterp(t, pi, pf, scalarTraj)
-%POSITIONINTERP Summary of this function goes here
-%   Detailed explanation goes here
+%POSITIONINTERP position trajectory generator
 
 [straj, strajdot] = scalarTraj(t);
 

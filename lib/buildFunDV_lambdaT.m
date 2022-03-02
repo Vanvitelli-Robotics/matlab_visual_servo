@@ -1,4 +1,10 @@
 function DV = buildFunDV_lambdaT(ek,s_star,Ds_stark,TForwardVel)
+% buildFunDV_lambdaT build the function handler DV(lambdaT) = ||ekp1||^2 - ||ek||^2
+% 
+% ek: visual servoing error
+% s_star: reference features
+% Ds_stark: forward difference skp1 - sk
+% TForwardVel: forward action times sampling time T
 
 if nargin < 4 || isempty(TForwardVel)% || TForwardVel == 0)
     TForwardVel = zeros(6,1);

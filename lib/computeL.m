@@ -1,6 +1,7 @@
 function L = computeL(s, preloadL)
-%COMPUTEL Summary of this function goes here
-%   Detailed explanation goes here
+%COMPUTEL compute the interaction matrxi
+%   s: features
+%   preloadL: internal use, for code generation
 
 if(nargin < 2)
    preloadL = true; 

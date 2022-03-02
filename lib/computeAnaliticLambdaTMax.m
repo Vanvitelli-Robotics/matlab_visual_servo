@@ -1,4 +1,14 @@
 function lambdaT_max = computeAnaliticLambdaTMax(e,L,Dsstar,TForwardVel, rmse_noise_level, l_fcn)
+% computeAnaliticLambdaTMax compute the maximum analitic lambda taking into
+% account the constraint of the optimization problem P1
+%
+% e: visual servoing error
+% L: interaction matrix (L(s))
+% Dsstar,TForwardVel should be zero, don't use it
+% rmse_noise_level: noise level of the measured featurs, it is used to
+% avoid 0/0 in the conputation of alpha. It can be set to zero in
+% simulation.
+% l_fcn: landing function handler
 
 if(nargin < 6 || isempty(l_fcn))
     l_fcn = [];
